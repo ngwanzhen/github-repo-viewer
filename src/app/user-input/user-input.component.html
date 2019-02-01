@@ -1,0 +1,13 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+  <mat-form-field appearance="outline">
+    <mat-label>github name</mat-label>
+    <input type="text" placeholder="" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-hint>hint: https://github.com/<span class="body-2">&lt;github name&gt;</span></mat-hint>
+  </mat-form-field>
+  <button mat-fab color="accent" type="submit" class="btn btn-success">Search</button>
+</form>

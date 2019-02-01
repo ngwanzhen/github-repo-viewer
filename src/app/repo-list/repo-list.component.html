@@ -1,0 +1,8 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span>Projects by {{username}}</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div *ngFor="let repo of repoList">
+  <app-each-repo [username]="username" [repoName]="repo.name" [repoDate]="repo.updatedAt"></app-each-repo>
+</div>

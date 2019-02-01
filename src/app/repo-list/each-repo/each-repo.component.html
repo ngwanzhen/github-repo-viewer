@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{repoName}}</mat-card-title>
+    <mat-card-subtitle>Updated at: {{repoDate | date:'shortDate'}}</mat-card-subtitle>
+    <mat-icon class="pointer" *ngIf="!showReadme && !err" (click)="toggleReadme()">expand_more</mat-icon>
+    <mat-icon class="pointer" *ngIf="showReadme && !err" (click)="toggleReadme()">expand_less</mat-icon>
+
+    <app-error [msg]="err"></app-error>
+  </mat-card-header>
+
+  <mat-card *ngIf="showReadme && !err" [style.backgroundColor]="'lightgray'">
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <ngx-md [data]="readme"></ngx-md>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+  </mat-card>
+
+</mat-card>

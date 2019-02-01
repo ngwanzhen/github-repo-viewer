@@ -1,0 +1,12 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span>Search for {{username}}</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div *ngFor="let user of userList">
+  <p>{{user['login']}}
+    <img src='{{user.avatar_url}}' alt="user avatar">
+    <button mat-fab class="btn btn-success" (click)="getUserRepo(user['login'])">Get user projects</button>
+  </p>
+  <app-error [msg]="err"></app-error>
+</div>
